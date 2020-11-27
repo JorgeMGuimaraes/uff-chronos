@@ -1,5 +1,5 @@
 import unittest
-from controle_csv import *
+from controle_csv import ControleCsv
 
 class Teste_Csv(unittest.TestCase):
     """
@@ -8,10 +8,8 @@ class Teste_Csv(unittest.TestCase):
     def teste_carregar_csv(self):
         caminho = 'teste_dados.csv'
         dados   = ControleCsv().get_dict_dados(caminho)
-        for linha in resp:
-            resp = linha
-        self.assertEqual(resp['MATRICULA'] == 100)
-
+        for linha in dados:
+            self.assertEqual(linha['MATRICULA'], '100')
 
 if __name__ == "__main__":
     unittest.main()
