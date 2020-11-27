@@ -1,1 +1,3 @@
 refs/*
+__pycache__/
+*.py[cod]
