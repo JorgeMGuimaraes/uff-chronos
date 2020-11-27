@@ -10,6 +10,13 @@ class Teste_Csv(unittest.TestCase):
         dados   = ControleCsv().get_dict_dados(caminho)
         for linha in dados:
             self.assertEqual(linha['MATRICULA'], '100')
+    
+    def teste_falhar_csv(self):
+        caminho = 'nada.csv'
+        dados   = ControleCsv().get_dict_dados(caminho)
+        for linha in dados:
+            self.assertTrue('erro' in linha.keys())
 
 if __name__ == "__main__":
-    unittest.main()
+    suite = unittest.TestLoader().loadTestsFromTestCase(Teste_Csv)
+    unittest.TextTestRunner(verbosity=2).run(suite)
