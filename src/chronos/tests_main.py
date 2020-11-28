@@ -24,21 +24,27 @@ class Teste_Aluno(unittest.TestCase):
     """
 
     def teste_aluno(self):
-        aluno = Aluno(100)
-        
-        self.assertEqual(aluno.get_matricula(), 100)
-        self.assertIsInstance(aluno.get_matricula(), int)
+        aluno1 = Aluno(100)        
+        self.assertEqual(aluno1.get_matricula(), 100)
+        self.assertIsInstance(aluno1.get_matricula(), int)
 
-        aluno.set_nota_ponderada(10, 10)
-        self.assertEqual(aluno.get_nota_ponderada(), 100)
-        self.assertIsInstance(aluno.get_nota_ponderada(), int)
+        aluno1.set_nota_ponderada(10, 10)
+        self.assertEqual(aluno1.get_nota_ponderada(), 100)
+        self.assertIsInstance(aluno1.get_nota_ponderada(), int)
 
-        aluno.set_carga_horaria_total(10)
-        self.assertEqual(aluno.get_carga_horaria_total(), 10)
-        self.assertIsInstance(aluno.get_carga_horaria_total(), int)
+        aluno1.set_carga_horaria_total(10)
+        self.assertEqual(aluno1.get_carga_horaria_total(), 10)
+        self.assertIsInstance(aluno1.get_carga_horaria_total(), int)
 
-        self.assertEqual(aluno.get_cr(), 10)
-        self.assertIsInstance(aluno.get_cr(), int)
+        self.assertEqual(aluno1.get_cr(), 10)
+        self.assertIsInstance(aluno1.get_cr(), int)
+
+        aluno2  = Aluno(200)
+        nota    = 0
+        carga   = 0
+        aluno2.set_carga_horaria_total(carga)
+        aluno2.set_nota_ponderada(nota, carga)
+        self.assertEqual(aluno2.get_cr(), 0)
 
 if __name__ == "__main__":
     suite_csv   = unittest.TestLoader().loadTestsFromTestCase(Teste_Csv)
