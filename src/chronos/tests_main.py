@@ -12,21 +12,10 @@ class Teste_Csv(unittest.TestCase):
         for linha in dados:
             self.assertEqual(linha['MATRICULA'], '100')
     
-    def teste_falhar_csv(self):
-        caminho = 'nada.csv'
-        dados   = ControleCsv().get_dict_dados(caminho)
-        for linha in dados:
-            self.assertTrue('erro' in linha.keys())
-    
-    def teste_arquivo_inexistente(self):
-        caminho = 'falso.csv'
-        dados   = ControleCsv().get_dict_dados(caminho)
-        self.assertAlmostEqual(len(dados), 0)
-    
     def teste_fora_do_padrao(self):
         caminho = 'teste_dados_outro_formato.csv'
         dados   = ControleCsv().get_dict_dados(caminho)
-        self.assertAlmostEqual(len(dados), 0)
+        self.assertEqual(len(dados), 0)
 
 class Teste_Aluno(unittest.TestCase):
     """
