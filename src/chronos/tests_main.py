@@ -24,14 +24,16 @@ class Teste_Aluno(unittest.TestCase):
     """
 
     def teste_aluno(self):
-        aluno = Aluno()
+        aluno = Aluno(100)
         
         self.assertEqual(aluno.get_matricula(), 100)
         self.assertIsInstance(aluno.get_matricula(), int)
 
-        self.assertEqual(aluno.get_nota_ponderada(), 10)
+        aluno.set_nota_ponderada(10, 10)
+        self.assertEqual(aluno.get_nota_ponderada(), 100)
         self.assertIsInstance(aluno.get_nota_ponderada(), int)
 
+        aluno.set_carga_horaria_total(10)
         self.assertEqual(aluno.get_carga_horaria_total(), 10)
         self.assertIsInstance(aluno.get_carga_horaria_total(), int)
 
