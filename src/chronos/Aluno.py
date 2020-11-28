@@ -26,4 +26,6 @@ class Aluno():
         return self.carga_horaria_total
 
     def get_cr(self):
+        if self.carga_horaria_total == 0:
+            return 0
         return int(self.nota_ponderada / self.carga_horaria_total)
