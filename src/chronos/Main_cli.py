@@ -8,12 +8,14 @@ if __name__ == "__main__":
     parser.add_argument("caminho", type=Path)
     args    = parser.parse_args()
     if not args.caminho.exists():
+        print('Este arquivo nao existe. Confirme o caminho e tente novamente.')
         exit()
     
     controle_csv        = ControleCsv()
     controle_entidade   = ControleEntidade()
     dados               = controle_csv.get_dict_dados(args.caminho)
     if len(dados) == 0:
+        print('Este arquivo se encontra fora do padrao. Tente outro arquivo.')
         exit()
     
     alunos  = dict()
