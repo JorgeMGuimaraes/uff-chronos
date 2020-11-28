@@ -1,5 +1,6 @@
 import unittest
 from controle_csv import ControleCsv
+from Aluno import Aluno
 
 class Teste_Csv(unittest.TestCase):
     """
@@ -17,6 +18,32 @@ class Teste_Csv(unittest.TestCase):
         for linha in dados:
             self.assertTrue('erro' in linha.keys())
 
+class Teste_Aluno(unittest.TestCase):
+    """
+    Testa o comportamento do objeto aluno
+    """
+
+    def teste_aluno(self):
+        aluno = Aluno()
+        
+        self.assertEqual(aluno.get_matricula(), 100)
+        self.assertIsInstance(aluno.get_matricula(), int)
+
+        self.assertEqual(aluno.get_nota_ponderada(), 10)
+        self.assertIsInstance(aluno.get_nota_ponderada(), int)
+
+        self.assertEqual(aluno.get_carga_horaria_total(), 10)
+        self.assertIsInstance(aluno.get_carga_horaria_total(), int)
+
+        self.assertEqual(aluno.get_cr(), 10)
+        self.assertIsInstance(aluno.get_cr(), int)
+
 if __name__ == "__main__":
-    suite = unittest.TestLoader().loadTestsFromTestCase(Teste_Csv)
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    suite_csv   = unittest.TestLoader().loadTestsFromTestCase(Teste_Csv)
+    suite_aluno = unittest.TestLoader().loadTestsFromTestCase(Teste_Aluno)
+
+    suites = unittest.TestSuite([
+        suite_csv,
+        suite_aluno
+    ])
+    unittest.TextTestRunner(verbosity=2).run(suites)
