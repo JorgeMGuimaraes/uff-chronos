@@ -1,6 +1,6 @@
 import unittest
-from controle_csv import ControleCsv
-from Aluno import Aluno
+from Controle_csv import ControleCsv
+from Entidade import Entidade
 
 class Teste_Csv(unittest.TestCase):
     """
@@ -24,22 +24,22 @@ class Teste_Aluno(unittest.TestCase):
     """
 
     def teste_aluno(self):
-        aluno1 = Aluno(100)        
-        self.assertEqual(aluno1.get_matricula(), 100)
-        self.assertIsInstance(aluno1.get_matricula(), int)
+        aluno1 = Entidade(100)        
+        self.assertEqual(aluno1.id, 100)
+        self.assertIsInstance(aluno1.id, int)
 
         aluno1.set_nota_ponderada(10, 10)
-        self.assertEqual(aluno1.get_nota_ponderada(), 100)
-        self.assertIsInstance(aluno1.get_nota_ponderada(), int)
+        self.assertEqual(aluno1.nota_ponderada, 100)
+        self.assertIsInstance(aluno1.nota_ponderada, int)
 
         aluno1.set_carga_horaria_total(10)
-        self.assertEqual(aluno1.get_carga_horaria_total(), 10)
-        self.assertIsInstance(aluno1.get_carga_horaria_total(), int)
+        self.assertEqual(aluno1.carga_horaria_total, 10)
+        self.assertIsInstance(aluno1.carga_horaria_total, int)
 
         self.assertEqual(aluno1.get_cr(), 10)
         self.assertIsInstance(aluno1.get_cr(), int)
 
-        aluno2  = Aluno(200)
+        aluno2  = Entidade(200)
         nota    = 0
         carga   = 0
         aluno2.set_carga_horaria_total(carga)
