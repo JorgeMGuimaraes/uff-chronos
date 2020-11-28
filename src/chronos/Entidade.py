@@ -20,3 +20,6 @@ class Entidade():
         if self.carga_horaria_total == 0:
             return 0
         return int(self.nota_ponderada / self.carga_horaria_total)
+    
+    def get_output_cr(self):
+        return '{0}\t-  {1}'.format(self.id, self.get_cr())
