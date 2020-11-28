@@ -13,7 +13,7 @@ class Teste_Csv(unittest.TestCase):
             self.assertEqual(linha['MATRICULA'], '100')
     
     def teste_fora_do_padrao(self):
-        caminho = 'teste_dados_outro_formato.csv'
+        caminho = 'falso.csv'
         dados   = ControleCsv().get_dict_dados(caminho)
         self.assertEqual(len(dados), 0)
 
