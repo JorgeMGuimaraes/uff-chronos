@@ -21,12 +21,16 @@ Então execute o arquivo e passe o dataset como argumento:
 ```
 $ ./Main_cli.py /caminho/do/dataset.csv
 ```
+> NOTA:
+>
 > O shebang deste aquivo é `#! /usr/bin/env python3`, mas pode ser alterado para seu SO caso o PATH para o python aponte para outro lugar como `/usr/bin/python`.
 
 ## Extensibilidade
 
 Este programa lê um arquivo do tipo csv, mas pode facilmente ser adaptado para outro formato de entrada. Basta criar uma outra classe de conversão com uma função com a assinatura ` def get_dict_dados(self, caminho: str) -> None:` e substituir a chamada `controle_csv = ControleCsv()` por `controle_csv = MeConversorCsv()`.
 
+> NOTA:
+>
 > Lembrando que em Python não existem interfaces, os contratos são controlados pelo usuário.
 
 ## Testes
@@ -38,6 +42,10 @@ Todos os testes são automatizados, bastando executar o arquivo `tests_main.py`.
 Foi usado no desenvolvimento a versão 3.8 do Python, mas rodará em outras versões, preferencialmente acima da 3.5.x.
 
 Está incluso no projeto uma pasta devcontainer do Visual Studio Code. Caso queira também usar o mesmo ambiente conteinerizado de produção (Python 3.8, Node 10, extensões, linter, instalação automática de `requirements.txt`) você precisará do Docker instalado, além de possivelmente seu usuário como parte do grupo `docker`, a depender do SO/ SELinux.
+
+> NOTA:
+>
+> Devido a imcompatibilidade interna, o módulo unittest nao funciona corretamente dentro de containers (docker, kuberbetes, lxd). Assim, os testes não passarão dentro de containers, principalmente aqueles que abrem arquivos, porém rodam normalmente em outros ambientes, mesmo máquinas virtuais.
 
 ## Licença
 
