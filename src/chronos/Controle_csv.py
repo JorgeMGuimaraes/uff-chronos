@@ -5,7 +5,15 @@ class ControleCsv():
     Opera e manipula dados csv
     """
     
-    def get_dict_dados(self, caminho):
+    def get_dict_dados(self, caminho: str) -> None:
+        '''
+        Transforma os dados csv num dicionario, cujas chaves sao as mesmas do
+        dataset original.
+        Parameters
+        ----------
+        caminho : str
+            O caminho (relativo/ completo), incluindo o nome do arquivo de entrada
+        '''
         try:
             lista_de_dados = []
             with open(caminho, newline='') as arquivo_csv:
